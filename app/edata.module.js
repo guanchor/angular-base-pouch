@@ -5,10 +5,10 @@
  * - ngRoute --> Allows us to use routes on Angular
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('edata', [
-        'pouchdb',
-		'ngRoute'
-    ]);
+  angular.module('edata', [
+    'pouchdb',
+    'ngRoute'
+  ]);
 })();

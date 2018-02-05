@@ -2,21 +2,21 @@
  * Routes definitions for edata Client
  */
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('edata')
-            .config(configure);
+  angular.module('edata')
+    .config(configure);
 
-    configure.$inject = ['$routeProvider'];
+  configure.$inject = ['$routeProvider'];
 
-    function configure($routeProvider, EGL_CONSTANTS) {
-        //Define the default page of the application
-        $routeProvider.otherwise({redirectTo: '/start'});
-        //Start Page
-        $routeProvider.when('/start', {
-            templateUrl: './app/start.view.html',
-            controller: 'StartController',
-            controllerAs: 'startCtrl'
-        });
-    }
+  function configure($routeProvider, EGL_CONSTANTS) {
+    //Define the default page of the application
+    $routeProvider.otherwise({redirectTo: '/start'});
+    //Start Page
+    $routeProvider.when('/start', {
+      templateUrl: './app/pages/start.view.html',
+      controller: 'StartController',
+      controllerAs: 'startCtrl'
+    });
+  }
 })();
