@@ -10,5 +10,12 @@
   angular.module('edata', [
     'pouchdb',
     'ngRoute'
-  ]);
+  ])
+  .directive('sideMenu', function() {
+    return {
+      restrict: 'E',
+      templateUrl: './app/directives/side-menu.html'
+    };
+  })
+  ;
 })();

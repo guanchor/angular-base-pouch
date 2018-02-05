@@ -10,13 +10,25 @@
   configure.$inject = ['$routeProvider'];
 
   function configure($routeProvider, EGL_CONSTANTS) {
-    //Define the default page of the application
-    $routeProvider.otherwise({redirectTo: '/start'});
-    //Start Page
-    $routeProvider.when('/start', {
-      templateUrl: './app/pages/start.view.html',
-      controller: 'StartController',
-      controllerAs: 'startCtrl'
-    });
+    // Define the default page of the application
+    $routeProvider.otherwise({redirectTo: '/home'});
+
+    // Home Page
+    $routeProvider
+      .when('/home', {
+        templateUrl: './app/pages/home.view.html',
+        controller: 'HomeController',
+        controllerAs: 'homeCtrl'
+      })
+      .when('/users', {
+        templateUrl: './app/pages/users.view.html',
+        controller: 'UsersController',
+        controllerAs: 'usersCtrl'
+      })
+      .when('/user/:id?', {
+        templateUrl: './app/pages/user.view.html',
+        controller: 'UserController',
+        controllerAs: 'userCtrl'
+      });
   }
 })();
