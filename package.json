@@ -5,10 +5,12 @@
   "description": "edata test",
   "devDependencies": {
     "bower": "^1.3.1",
-    "http-server": "^0.10.0"
+    "http-server": "^0.10.0",
+    "lr-http-server": "^0.1.5"
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "http-server -p 8080 ./"
+    "start": "http-server -p 8080 ./",
+    "dev": "lr-http-server"
   }
 }
