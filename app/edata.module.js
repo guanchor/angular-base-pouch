@@ -11,6 +11,12 @@
     'pouchdb',
     'ngRoute'
   ])
+  .directive('topHeader', function() {
+    return {
+      restrict: 'E',
+      templateUrl: './app/directives/top-header.html'
+    };
+  })
   .directive('sideMenu', function() {
     return {
       restrict: 'E',
