@@ -16,17 +16,17 @@
     // Home Page
     $routeProvider
       .when('/home', {
-        templateUrl: './app/pages/home.view.html',
+        templateUrl: './app/pages/home/home.view.html',
         controller: 'HomeController',
         controllerAs: 'homeCtrl'
       })
       .when('/users', {
-        templateUrl: './app/pages/users.view.html',
+        templateUrl: './app/pages/users/users.view.html',
         controller: 'UsersController',
         controllerAs: 'usersCtrl'
       })
       .when('/user/:id?', {
-        templateUrl: './app/pages/user.view.html',
+        templateUrl: './app/pages/user/user.view.html',
         controller: 'UserController',
         controllerAs: 'userCtrl'
       });
