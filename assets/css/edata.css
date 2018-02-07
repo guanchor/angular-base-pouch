@@ -48,3 +48,11 @@ side-menu aside a {
   position: absolute;
   top: 5rem;
 }
+
+.field {
+  margin-bottom: 1rem;
+}
+.field label {
+  display: inline-block;
+  width: 10rem;
+}
