@@ -15,13 +15,13 @@
     .directive('topHeader', function() {
       return {
         restrict: 'E',
-        templateUrl: './app/directives/top-header.html'
+        templateUrl: './app/directives/top-header.view.html'
       };
     })
     .directive('sideMenu', function() {
       return {
         restrict: 'E',
-        templateUrl: './app/directives/side-menu.html'
+        templateUrl: './app/directives/side-menu.view.html'
       };
     })
     .service('service', function(pouchDB) {
