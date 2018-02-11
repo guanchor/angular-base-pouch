@@ -50,6 +50,16 @@ side-menu aside a {
   top: 5rem;
 }
 
+/* form */
+.error-message {
+  border: 1px solid lightcoral;
+  border-radius: 0.5rem;
+  background-color: lightcoral;
+  color: white;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+  text-align: center
+}
 .field {
   margin-bottom: 1rem;
 }
@@ -57,3 +67,29 @@ side-menu aside a {
   display: inline-block;
   width: 10rem;
 }
+.field input {
+  border-color: lightblue;
+  border-radius: 0.25rem;
+  border-style: solid;
+}
+.field input.ng-invalid {
+  border-color: lightcoral;
+}
+.field input.ng-invalid-custom-required + .required-error-message {
+  display: block;
+}
+.field .maxlength-error-message,
+.field .required-error-message {
+  color: lightcoral;
+  display: none;
+  margin-left: 10.5rem;
+}
+
+/* vendors override */
+.angularjs-datetime-picker .hourLabel,
+.angularjs-datetime-picker .minutesLabel {
+  clear: both;
+  float: left;
+}
+.angularjs-datetime-picker .hourInput,
+.angularjs-datetime-picker .minutesInput { float: right }
