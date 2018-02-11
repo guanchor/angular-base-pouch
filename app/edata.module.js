@@ -11,6 +11,7 @@
     .module('edata', [
       'pouchdb',
       'ngRoute',
+      'angularjs-datetime-picker'
     ])
     .directive('topHeader', function() {
       return {

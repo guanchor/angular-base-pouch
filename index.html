@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <link rel="stylesheet" href="assets/libs/bower_components/angularjs-datetime-picker/angularjs-datetime-picker.css" />
     <link rel="stylesheet" href="assets/css/edata.css">
   </head>
   <body ng-app="edata">
@@ -18,12 +19,17 @@
 
     <top-header></top-header>
     <side-menu></side-menu>
-    <div class="height100" ng-view></div>
+    <div id="content">
+      <div class="height100" ng-view></div>
+    </div>
 
     <script src="assets/libs/bower_components/angular/angular.js"></script>
     <script src="assets/libs/bower_components/angular-route/angular-route.js"></script>
     <script src="assets/libs/bower_components/pouchdb/dist/pouchdb.js"></script>
     <script src="assets/libs/bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+    <script src="assets/libs/bower_components/angularjs-datetime-picker/angularjs-datetime-picker.js"></script>
+    <script src="assets/libs/bower_components/angularjs-datetime-picker/angularjs-datetime-picker.min.js"></script>
+
 
     <script src="app/edata.module.js"></script>
     <script src="app/edata.routes.js"></script>
