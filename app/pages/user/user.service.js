@@ -5,9 +5,9 @@
     .module('edata')
     .factory('userService', userService);
 
-  userService.$inject = ['$window', '$q'];
+  userService.$inject = ['$window', '$q', 'pouchdbService'];
 
-  function userService($window, $q) {
+  function userService($window, $q, pouchdbService) {
     var _errors = [],
       _rules = {
         expireDate: { 'required': null },
@@ -45,9 +45,7 @@
     }
 
     function save(data) {
-      var doc = {},
-        db = $window.PouchDB('edata_db')
-      ;
+      var doc = {};
 
       saveBind(data);
       try {
@@ -57,9 +55,9 @@
         return $q.reject(e);
       }
 
-      return db.post(doc)
-        //.catch(saveError)
+      return pouchdbService.save(doc);
         //.then(saveComplete)
+        //.catch(saveError)
       ;
 
       function saveBind(data) {

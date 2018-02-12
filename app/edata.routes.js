@@ -5,11 +5,11 @@
   'use strict';
 
   angular.module('edata')
-    .config(configure);
+    .config(config);
 
-  configure.$inject = ['$routeProvider'];
+  config.$inject = ['$routeProvider'];
 
-  function configure($routeProvider, EGL_CONSTANTS) {
+  function config($routeProvider, EGL_CONSTANTS) {
     // Define the default page of the application
     $routeProvider.otherwise({redirectTo: '/home'});
 

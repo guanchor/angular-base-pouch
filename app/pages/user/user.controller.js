@@ -50,8 +50,9 @@
 
     function submit() {
       userService.save(vm)
+        .then(redirect)
         .catch(updateErrorMessages)
-        .then(redirect);
+      ;
     }
 
     function redirect (response) {
