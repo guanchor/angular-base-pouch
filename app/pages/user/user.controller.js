@@ -5,9 +5,9 @@
     .module('edata')
     .controller('UserController', UserController);
 
-  UserController.$inject = ['$scope', 'userService'];
+  UserController.$inject = ['$scope', '$location', 'userService'];
 
-  function UserController($scope, userService)
+  function UserController($scope, $location, userService)
   {
     var vm = this;
     vm.reset = reset;
@@ -57,7 +57,7 @@
 
     function redirect (response) {
       console.log(response);
-      $state.go("users");
+      $location.path("users");
     }
   }
 
