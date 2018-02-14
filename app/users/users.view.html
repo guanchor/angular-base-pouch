@@ -1,0 +1,46 @@
+<h2>Users</h2>
+
+<div ng-show="usersCtrl.errorMessage" class="error-message">{{ usersCtrl.errorMessage }}</div>
+
+<div class="field">
+  <label>Filter</label>
+  <input type="radio" name="filter" value="all"
+    ng-model="usersCtrl.filter"
+    ng-change="usersCtrl.filterUsers('all')" /> All users
+  <input type="radio" name="filter" value="not_expired"
+    ng-model="usersCtrl.filter"
+    ng-change="usersCtrl.filterUsers('not_expired')" /> Not expired
+</div>
+
+<table class="users-table">
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>Expire Date</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in usersCtrl.users">
+      <td title="{{ user.id }}"><a><i class="fa fa-eye"></i></td>
+      <td>{{ usersCtrl.formatDate(user.doc.expireDate) }}</td>
+      <td>{{ user.doc.firstName }}</td>
+      <td>{{ user.doc.lastName }}</td>
+      <td>
+        <i ng-if="usersCtrl.userIsActive($index)" class="fa fa-check"></i>
+        <i ng-if="usersCtrl.userIsBlocked($index)" class="fa fa-lock"></i>
+        <i ng-if="usersCtrl.userIsDeleted($index)" class="fa fa-user-times"></i>
+      </td>
+      <td>
+        <a href="#/user/{{ user.id }}"><i class="fa fa-pencil"></i></a>
+        <a href="" ng-click="usersCtrl.remove($index)"><i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot></tfoot>
+</table>
+
+<button class="btn-full-width" type="button" ng-click="usersCtrl.sync()">Sync</button>
