@@ -102,7 +102,7 @@
         });
 
         if (!valid) {
-          throw 'Validation Error';
+          throw 'Validation error';
         }
         return valid;
       }

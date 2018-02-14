@@ -60,8 +60,8 @@ button {
 }
 
 button.btn-full-width {
-  margin: 1rem;
-  width: calc(100% - 2rem);
+  margin: 1rem calc(50% - 2.5rem);
+  width: 5rem;
 }
 
 /* form */
