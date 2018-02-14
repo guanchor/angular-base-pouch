@@ -5,22 +5,28 @@
     .module('edata')
     .factory('userService', userService);
 
-  userService.$inject = ['$window', '$q', 'pouchdbService'];
+  userService.$inject = ['$q', 'pouchdbService'];
 
-  function userService($window, $q, pouchdbService) {
+  function userService($q, pouchdbService) {
     var _errors = [],
+
       _rules = {
         expireDate: { 'required': null },
         firstName: { 'required': null, 'maxLength': 100 },
         lastName: { 'required': null, 'maxLength': 100 },
         status: { 'required': null },
       },
+
       _setError = function(field, rule, status) {
+        if (!field) {
+          return _errors['form'] = true;
+        }
         if (!_errors[field]) {
           _errors[field] = [];
         }
         return _errors[field][rule] = status;
       },
+
       _validators = {
         required: function(value) {
           return value !== null && value !== "" && value !== [];
@@ -34,6 +40,7 @@
     // services return
     var service = {
       getErrors: getErrors,
+      getUser: getUser,
       save: save,
       validateField: validateField
     };
@@ -42,6 +49,22 @@
 
     function getErrors() {
       return _errors;
+    }
+
+    function getUser(userId) {
+      return pouchdbService.get(userId)
+        .then(getUserComplete)
+        .catch(getUserError)
+      ;
+
+      function getUserComplete(response) {
+        return response;
+      }
+
+      function getUserError(error) {
+        console.error(error);
+        return $q.reject( 'Error retrieving user ' + userId );
+      }
     }
 
     function save(data) {
@@ -55,12 +78,14 @@
         return $q.reject(e);
       }
 
-      return pouchdbService.save(doc);
-        //.then(saveComplete)
-        //.catch(saveError)
+      return pouchdbService.save(doc)
+        .then(saveComplete)
+        .catch(saveError)
       ;
 
       function saveBind(data) {
+        doc._id = data._id;
+        doc._rev = data._rev;
         doc.expireDate = data.expireDate;
         doc.firstName = data.firstName;
         doc.lastName = data.lastName;
@@ -82,12 +107,13 @@
         return valid;
       }
 
-      function saveError(error) {
-        return false;
+      function saveComplete(response) {
+        return response.ok;
       }
 
-      function saveComplete(response) {
-        return db.get(response.id);
+      function saveError(error) {
+        console.error(error);
+        return $q.reject( 'Error saving user: ' + error.message );
       }
     }
 
@@ -111,7 +137,6 @@
 
       return valid;
     }
-
   }
 
 })();
