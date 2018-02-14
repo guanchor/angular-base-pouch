@@ -110,3 +110,13 @@ button.btn-full-width {
 }
 .angularjs-datetime-picker .hourInput,
 .angularjs-datetime-picker .minutesInput { float: right }
+
+.fa-check {
+  color: green;
+}
+.fa-lock {
+  color: yellow;
+}
+.fa-user-times {
+  color: red;
+}
