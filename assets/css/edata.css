@@ -102,6 +102,14 @@ button.btn-full-width {
   margin-left: 10.5rem;
 }
 
+/* list */
+.users-table {
+  text-align: center;
+  width: 100%;
+}
+.users-table .fa-eye {
+  cursor: help;
+}
 /* vendors override */
 .angularjs-datetime-picker .hourLabel,
 .angularjs-datetime-picker .minutesLabel {
