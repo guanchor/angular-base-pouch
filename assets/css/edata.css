@@ -50,6 +50,20 @@ side-menu aside a {
   top: 5rem;
 }
 
+button {
+  background-color: lightblue;
+  border-radius: .25rem;
+  border: 1px inset transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+}
+
+button.btn-full-width {
+  margin: 1rem;
+  width: calc(100% - 2rem);
+}
+
 /* form */
 .error-message {
   border: 1px solid lightcoral;
@@ -77,6 +91,9 @@ side-menu aside a {
 }
 .field input.ng-invalid-custom-required + .required-error-message {
   display: block;
+}
+.field input[type=text] {
+  width: 15rem;
 }
 .field .maxlength-error-message,
 .field .required-error-message {
