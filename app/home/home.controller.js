@@ -10,7 +10,6 @@
   function HomeController()
   {
     var vm = this;
-    var TAG = 'HomeController';
 
     initialization();
 
